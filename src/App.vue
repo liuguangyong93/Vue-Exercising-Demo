@@ -1,46 +1,34 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <h1>{{ msg }}</h1>
-    <router-link to="/A">Go to componentA</router-link>
-    <router-link to="/B">Go to componentB</router-link>
-    <router-link to="/C">Go to componentC</router-link> -->
-    <cart-nav></cart-nav>
-    <!-- 路由外链 -->
-    <router-view></router-view>
+    <h1>Vue.js Vue TodoList</h1>
+    <hr>
+    <todoInput />
+    <todoList />
+    <p>todoList 数量：{{todoCount}}</p>
+    <pre>{{$store.state}}</pre>
   </div>
 </template>
 
 <script>
-import Nav from './components/Nav.vue'
-import store from './vuex/store'
+import todoInput from './components/input.vue';
+import todoList from './components/list.vue';
+import {mapGetters} from "vuex";
+
 export default {
   name: 'app',
-  store,
-  data() {
+  data () {
     return {
-      msg: 'Welcome to Your Vue App!',
+      msg: 'Welcome to Your Vue.js App'
     }
   },
-  components: {
-    'cart-nav': Nav
+  computed:{
+    ...mapGetters({
+      todoCount:"nCounts"
+    })
   },
-  methods: {
-    
-  },
-  created() {
-    
+  components:{
+    todoInput,
+    todoList
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

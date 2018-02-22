@@ -1,11 +1,11 @@
+/* jshint esversion: 6 */
+/* jshint -W033 */
 import Vue from 'vue'
 import Router from 'vue-router'
 // import page from '@/components/page'
 // import footer from '@/components/footer'
 // import Hello from '@/components/Hello'
 // import TreeListTest from '@/components/TreeListTest'
-import Cart from '@/components/Cart'
-import Index from '@/components/Index'
 // 异步写法如下
 const ComponentA = resolve => require(['../components/ComponentA.vue'], resolve)
 const ComponentB = resolve => require(['../components/ComponentB.vue'], resolve)
@@ -33,16 +33,6 @@ export default new Router({
       path: '/C',
       name: 'C',
       component: ComponentC
-    },
-    {
-      path: '/Cart',
-      name: 'Cart',
-      component: Cart
-    },
-    {
-      path: '/Index',
-      name: 'Index',
-      component: Index
     }
   ]
 })
